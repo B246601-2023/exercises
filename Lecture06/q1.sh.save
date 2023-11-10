@@ -1,0 +1,6 @@
+#!/bin/bash 
+unset IFS 
+while read Q_acc S_acc Identity A_leangth Gap_opens Q_start Q_end S_start S_end Evalue bit_score 
+do
+echo "${S_acc}" > subject.out
+done 

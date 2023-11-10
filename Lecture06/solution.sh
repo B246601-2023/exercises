@@ -36,6 +36,10 @@ if test ${wholeline:0:1} != "#";
 then
  echo "${wholeline}" >> "sortlines.out"
  read Q_acc S_acc Identity A_length mismatch Gap_opens Q_start Q_end S_start S_end Evalue bit_score <<< ${wholeline}
+ if [[ ${S_acc} == *"AEI"* ]]
+ then
+ echo -e "${S_acc}\t${S_start}" >> "string_AEI.exercise.out"
+ fi
  if ((A_length < 100))
  then
  count1=$((count1+1))
@@ -81,7 +85,6 @@ done < blastoutput2.out
 echo "There are ${count1} HSPs less than 100 amino acids."
 count3=$(cut -d $'\t' -f2 sortlines.out | uniq -d | wc -l)
 cat sortlines.out | sort -t$'\t' -k12,12nr | head -10 > "top10_best.exercise.out"
-grep "AEI" sortlines.out >> "string_AEI.exercise.out"
 
 echo "There are ${count3} subject sequences have more than one HSP."
 rm -f sortlines.out

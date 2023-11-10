@@ -24,7 +24,7 @@ with open("remote_in.txt",'w') as file :
 	file.write(">sequence1_"+str(len(rcode2))+"\n"+rcode2)
 
 with open("remote_ex.txt",'w') as file :
-	file.write(">sequence_1"+str(len(rcode1))+"\n"+rcode1+"\n"+">sequence2_"+str(len(rcode3))+"\n"+rcode3)
+	file.write(">sequence1_"+str(len(rcode1))+"\n"+rcode1+"\n"+">sequence2_"+str(len(rcode3))+"\n"+rcode3)
 
 
 
